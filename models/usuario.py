@@ -1,4 +1,5 @@
-from sql_alchemy import banco 
+from sql_alchemy import banco
+
 
 class UserModel(banco.Model):
     __tablename__ = 'usuarios'
@@ -10,7 +11,7 @@ class UserModel(banco.Model):
     def __init__(self, login, senha):
         self.login = login
         self.senha = senha
-    
+
     def json(self):
         return {
             'user_id': self.user_id,
@@ -25,7 +26,7 @@ class UserModel(banco.Model):
         user = cls.query.filter_by(user_id=user_id).first()
         if user:
             return user
-        return None 
+        return None
 
     @classmethod
     def find_by_login(cls, login):
